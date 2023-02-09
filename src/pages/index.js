@@ -18,10 +18,23 @@ export default function Home() {
         <div className={styles.description}>
         </div>
       </main> */}
-      <div class="mt-4 container text-center">
-        <div class="row">
-          <div class="col">col</div>
-        </div>
+      <div class="mt-4 container">
+        <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Name</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></input>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Your City</label>
+              <input type="text" class="form-control" id="exampleInputPassword1"></input>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Your Education</label>
+              <input type="text" class="form-control" id="exampleInputPassword1"></input>
+            </div>
+          
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
       </div>
     </>
   )
