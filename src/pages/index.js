@@ -18,6 +18,14 @@ export default function Home() {
         <div className={styles.description}>
         </div>
       </main> */}
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">col</div>
+          <div class="col">col</div>
+          <div class="col">col</div>
+          <div class="col">col</div>
+        </div>
+      </div>
     </>
   )
 }
