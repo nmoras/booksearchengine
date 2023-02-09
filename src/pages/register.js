@@ -5,13 +5,21 @@ import { useRouter } from 'next/router';
 import InputForm from '@/components/Forms/InputForm'
 
 export default function Home() {
-  const handleChange = (e) => {
+    const [myThread, setMyThread] = useState( {title: "", message: ""});
+    const [form, setForm] = useState( { firstname: "", lastname: "", profession: "" })
 
-  }
+    const handleChange = (e) => {
+        e.preventDefault();
 
-  const handleForm = (e) => {
+        // let newThread =  ({ ...myThread, [id] : value})
+        // setMyThread(newThread)
 
-  }
+
+    }
+
+    const handleForm = (e) => {
+    
+    }
 
 
 
@@ -27,7 +35,11 @@ export default function Home() {
         <div className={styles.description}>
         </div>
       </main> */}
-      
+      <InputForm 
+        onSubmit={handleForm}
+        handleChange={handleChange}
+        heading="Add a new User"
+      />
       
     </>
   )
