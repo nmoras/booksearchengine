@@ -20,7 +20,7 @@ const Register = () => {
     const handleForm = async (e) => {
       e.preventDefault();
 
-      const apiUserForm = await fetch('/api/newUser', 
+      const apiUserForm = await fetch('/api/register', 
       {   method: 'post',
           headers: {
               'Accept': 'application/json, text/plain, */*',
