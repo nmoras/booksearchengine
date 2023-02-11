@@ -4,24 +4,46 @@ import { useRouter } from 'next/router';
 
 import InputForm from '@/components/Forms/InputForm'
 
-export default function Home() {
-    const [myThread, setMyThread] = useState( {title: "", message: ""});
+const Register = () => {
+    const router = useRouter();
     const [form, setForm] = useState( { firstname: "", lastname: "", profession: "" })
 
     const handleChange = (e) => {
         e.preventDefault();
-
+        let user = ({...form, [e.target.id] :e.target.value})
+        //console.log(user)
+        setForm(user)
         // let newThread =  ({ ...myThread, [id] : value})
         // setMyThread(newThread)
-
-
     }
+      
+    const handleForm = async (e) => {
+      e.preventDefault();
 
-    const handleForm = (e) => {
+      const apiUserForm = await fetch('/api/newUser', 
+      {   method: 'post',
+          headers: {
+              'Accept': 'application/json, text/plain, */*',
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(form)
+      }).then( result=>result.json())  
     
+      if(apiUserForm.message){
+          setAlertMessage({type: 'success', message: apiUserForm.message})
+          setTimeout( function(){ setAlertMessage( {} ); }, 1000 );
+          router.push('/');
+        } 
+      else 
+        {
+          setAlertMessage({type: 'danger', message: apiUserForm.message})
+          setTimeout( function(){ setAlertMessage({}); }, 1000 );
+        }
+
+      setForm({firstname: "", lastname: "", profession: ""}
+      )
+
     }
-
-
 
   return (
     <>
@@ -44,3 +66,5 @@ export default function Home() {
     </>
   )
 }
+
+export default Register;
