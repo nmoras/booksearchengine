@@ -40,10 +40,7 @@ const Register = () => {
           setAlertMessage({type: 'danger', message: apiUserForm.message})
           setTimeout( function(){ setAlertMessage({}); }, 1000 );
         }
-
-      setForm({firstname: "", lastname: "", profession: ""}
-      )
-
+        
     }
 
   return (

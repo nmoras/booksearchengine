@@ -1,5 +1,5 @@
-import dbConnect from '../../../utils/dbconnect'
-const db = require( '../../../../db/models' )
+// import dbConnect from '../../../utils/dbconnect'
+// const db = require( '../../../../db/models' )
 
 // //Registration
 // post('/api/user/registration', async function( req,res ){
