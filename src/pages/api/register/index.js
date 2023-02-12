@@ -1,5 +1,5 @@
-// import dbConnect from '../../../utils/dbconnect'
-// const db = require( '../../../../db/models' )
+import dbConnect from '../../../utils/dbconnect'
+const db = require( '../../../../db/models/user' )
 
 // //Registration
 // post('/api/user/registration', async function( req,res ){
@@ -13,20 +13,20 @@
     console.log(method, 'method');
     console.log(req.body, 'userdata')
 
-    // await dbConnect();
+    await dbConnect();
 
 
-    // const userData = req.body;
+    const userData = req.body;
     // const registerResult = await orm.registerUser( userData );
     // res.send(registerResult);
 
-    // const saveData ={
-    //     firstname: userData.firstname,
-    //     lastname: userData.lastname,
-    //     profession: usersData.profession
-    // }
-    // const dbUser = new db.user( saveData )
-    // const saveUser = await dbUser.save();
+    const saveData ={
+        firstname: userData.firstname,
+        lastname: userData.lastname,
+        profession: usersData.profession
+    }
+    const dbUser = new db.user( saveData )
+    const saveUser = await dbUser.save();
     
     // return{
     //     message: "User successfully saved", 

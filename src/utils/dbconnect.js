@@ -1,12 +1,24 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
-async function dbConnect(){
+const connection = {};
 
-    mongoose.connect(process.env.MONGODB_URI,{useNewUrlParser: true});
-    const connection = mongoose.connection;
-    connection.once('open', () => {
-      console.log("MongoDB database connection established successfully");
-    })
+(async function dbconnect() {
+	if (connection.isConnected) {
+		return;
+	}
 
-}
+	try {
+		const db = await mongoose.connect(process.env.MONGODB_URI, {
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+			useCreateIndex: true,
+			useFindAndModify: false,
+		});
 
+		connection.isConnected = db.connections[0].readyState;
+
+		console.log("MongoDB Connected");
+	} catch (error) {
+		console.log(error);
+	}
+})();
