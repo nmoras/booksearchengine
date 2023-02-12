@@ -29,9 +29,12 @@ const Register = () => {
           },
           body: JSON.stringify(form)
       }).then( (result) => {
+        console.log(result)
         result.json();
         setForm({ firstname: "", lastname: "", profession: "" });
       })  
+
+      console.log(apiUserForm, 'apiuserform')
 
       if(apiUserForm.message){
           setAlertMessage({type: 'success', message: apiUserForm.message})
