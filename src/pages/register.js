@@ -28,8 +28,11 @@ const Register = () => {
               'Content-Type': 'application/json'
           },
           body: JSON.stringify(form)
-      }).then( result=>result.json())  
-    
+      }).then( (result) => {
+        result.json();
+        setForm({ firstname: "", lastname: "", profession: "" });
+      })  
+
       if(apiUserForm.message){
           setAlertMessage({type: 'success', message: apiUserForm.message})
           setTimeout( function(){ setAlertMessage( {} ); }, 1000 );
@@ -39,8 +42,7 @@ const Register = () => {
         {
           setAlertMessage({type: 'danger', message: apiUserForm.message})
           setTimeout( function(){ setAlertMessage({}); }, 1000 );
-        }
-        
+        }     
     }
 
   return (
