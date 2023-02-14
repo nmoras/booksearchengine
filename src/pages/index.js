@@ -15,18 +15,19 @@ export default function Home({users}) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Users data={heros} />
+      <Users data={users} />
     </>
   )
 }
 
 export async function getServerSideProps(context) {
   const res = await fetch('http://localhost:3000/api/users')
-  const data = await res.json()
-  console.log(data)
+  //const data = await res.json()
+  //console.log('data', data)
+  const user = res.data
 
   return {
-    props: {data}, // will be passed to the page component as props
+    props: {users: user}, // will be passed to the page component as props
   }
 }
 

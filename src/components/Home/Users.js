@@ -1,4 +1,5 @@
-const Users = () => {
+const Users = (users) => {
+    console.log(users)
     return ( 
         <div>
         <table className="table">
