@@ -28,24 +28,10 @@ const Register = () => {
               'Content-Type': 'application/json'
           },
           body: JSON.stringify(form)
-      }).then( (result) => {
-        console.log(result)
-        result.json();
-        setForm({ firstname: "", lastname: "", profession: "" });
-      })  
-
-      console.log(apiUserForm, 'apiuserform')
-
-      if(apiUserForm.message){
-          setAlertMessage({type: 'success', message: apiUserForm.message})
-          setTimeout( function(){ setAlertMessage( {} ); }, 1000 );
-          router.push('/');
-        } 
-      else 
-        {
-          setAlertMessage({type: 'danger', message: apiUserForm.message})
-          setTimeout( function(){ setAlertMessage({}); }, 1000 );
-        }     
+      })
+      .then( (result) => result.json())
+      .then( setForm({ firstname: "", lastname: "", profession: "" })) 
+      console.log(apiUserForm)
     }
 
   return (

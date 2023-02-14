@@ -24,10 +24,6 @@ import user from '../../../../models/user'
     }
     //const dbUser = new user( saveData )
     const dbUser = await user.create(saveData)
-    //const saveUser = await dbUser.save();
-    console.log(dbUser)
-    
-    return{
-        message: "User successfully saved", 
-    }
+    const saveUser = await dbUser.save();
+    res.send(dbUser)
   }
