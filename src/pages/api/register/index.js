@@ -25,5 +25,6 @@ import user from '../../../../models/user'
     //const dbUser = new user( saveData )
     const dbUser = await user.create(saveData)
     const saveUser = await dbUser.save();
-    res.send(dbUser)
+    //res.send(saveUser)
+    res.status(200).json({success: true, data: saveUser})
   }
