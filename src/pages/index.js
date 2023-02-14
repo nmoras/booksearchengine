@@ -1,20 +1,12 @@
 import Head from 'next/head'
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import Users from '@/components/Home/Users';
 
 import InputForm from '@/components/Forms/InputForm'
 
-export default function Home() {
-  const handleChange = (e) => {
-
-  }
-
-  const handleForm = (e) => {
-
-  }
-
-
-
+export default function Home({users}) {
+ 
   return (
     <>
       <Head>
@@ -23,28 +15,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
-        <table className="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-        </tbody>  
-        </table>
-      </div>
-      
-      
+      <Users data={heros} />
     </>
   )
 }
+
