@@ -31,7 +31,10 @@ const Register = () => {
       })
       .then( (result) => result.json())
       .then( setForm({ firstname: "", lastname: "", profession: "" })) 
-      console.log(apiUserForm)
+
+      if(apiUserForm.success){
+        router.push('/')
+      }
     }
 
   return (
