@@ -5,19 +5,20 @@ const Users = (users) => {
         <table className="table">
         <thead>
           <tr>
-            <th scope="col">#</th>
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
             <th scope="col">Profession</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
+          <tr>{users.map( (user) =>
+                <div>
+                    <td>{user.firstname}</td>
+                    <td>{user.lastname}</td>
+                    <td>{user.profession}</td>
+                </div>      
+        )} 
+        </tr>
         </tbody>  
         </table>
       </div>
