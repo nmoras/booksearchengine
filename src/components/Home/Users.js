@@ -1,6 +1,7 @@
 const Users = (users) => {
     console.log(users)
-    return ( 
+    if(users){
+      return ( 
         <div>
         <table className="table">
         <thead>
@@ -22,7 +23,14 @@ const Users = (users) => {
         </tbody>  
         </table>
       </div>
-     );
+     )
+    } else
+    {
+      return(
+        <div>home page</div>
+       )
+    }
+    
 }
  
 export default Users;

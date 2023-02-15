@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import Users from '@/components/Home/Users';
 
+import Users from '@/components/Home/Users';
 import InputForm from '@/components/Forms/InputForm'
 
 export default function Home({users}) {
@@ -20,11 +20,13 @@ export default function Home({users}) {
   )
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
+  console.log('testing')
   const res = await fetch('http://localhost:3000/api/users')
-  const data = await res.json()
-  //console.log('data', data)
+  console.log(res)
+  //const data = await res.json()
   const user = res.data
+  console.log('data', data)
 
   return {
     props: {users: user}, // will be passed to the page component as props
