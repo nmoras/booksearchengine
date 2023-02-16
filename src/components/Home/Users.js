@@ -1,6 +1,6 @@
 const Users = (users) => {
-    console.log(users)
-    if(users){
+    console.log(typeof(users))
+    if(users == 'undefined'){
       return ( 
         <div>
         <table className="table">
@@ -12,13 +12,14 @@ const Users = (users) => {
           </tr>
         </thead>
         <tbody>
-          <tr>{users.map( (user) =>
+          <tr>
+            { (users.length !== 0) ? users.map( user =>
                 <div>
                     <td>{user.firstname}</td>
                     <td>{user.lastname}</td>
                     <td>{user.profession}</td>
-                </div>      
-        )} 
+                </div>   
+        ): ''}
         </tr>
         </tbody>  
         </table>

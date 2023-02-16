@@ -23,13 +23,21 @@ export default function Home({users}) {
 export async function getServerSideProps() {
   console.log('testing')
   const res = await fetch('http://localhost:3000/api/users')
-  console.log(res)
-  //const data = await res.json()
-  const user = res.data
-  console.log('data', data)
+                .then( (result) => result.json())        
+  //console.log('the api user response is', res)
+
+  //const { user } = res.data
+  
+
+  //console.log(res.data)
+  const  user  = res.data 
+  console.log('user', user)
+  console.log('user type is', typeof(user))
+  //console.log(Object.values(user)) 
+ 
 
   return {
-    props: {users: user}, // will be passed to the page component as props
+    props: {users: ''}, // will be passed to the page component as props
   }
 }
 

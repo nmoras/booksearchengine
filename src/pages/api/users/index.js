@@ -9,12 +9,16 @@ import user from '../../../../models/user'
 //   })
 
  export default async function( req,res ){
-  console.log('testing api users')
+
+  await dbconnect();
+
+  //console.log('testing api users')
     const { method } = req;
+    //console.log(method, 'method');
     
     const users = await user.find({})
-    console.log(res)
+    
     res.status(200).json({success: true, data: users})
-    console.log(users)
+    //console.log(users)
     
   }
