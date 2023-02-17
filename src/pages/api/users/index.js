@@ -16,9 +16,9 @@ import user from '../../../../models/user'
     const { method } = req;
     //console.log(method, 'method');
     
-    const users = await user.find({})
+    const userData = await user.find({})
     
-    res.status(200).json({success: true, data: users})
+    res.status(200).json({success: true, users : userData})
     //console.log(users)
     
   }

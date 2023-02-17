@@ -30,14 +30,14 @@ export async function getServerSideProps() {
   
 
   //console.log(res.data)
-  const  user  = res.data 
-  console.log('user', user)
-  console.log('user type is', typeof(user))
+  const  { users } = res.users
+  console.log('user', users )
+  console.log('user type is', typeof(users))
   //console.log(Object.values(user)) 
  
 
   return {
-    props: {users: ''}, // will be passed to the page component as props
+    props: {users: users}, // will be passed to the page component as props
   }
 }
 
