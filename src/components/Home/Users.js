@@ -1,6 +1,13 @@
+import user from 'models/user';
+import { set } from 'mongoose';
+import { useState } from 'react';
+
 const Users = (users) => {
-    console.log(typeof(users))
-    if(users == 'undefined'){
+  console.log('users', users)
+   const[ userList, setUserList ] = useState([])
+   setUserList[users.data]
+    console.log('users component is', userList )
+    if(users){
       return ( 
         <div>
         <table className="table">
@@ -13,7 +20,7 @@ const Users = (users) => {
         </thead>
         <tbody>
           <tr>
-            { (users.length !== 0) ? users.map( user =>
+            { (userList.length !== 0) ? userList.map( user =>
                 <div>
                     <td>{user.firstname}</td>
                     <td>{user.lastname}</td>

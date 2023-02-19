@@ -18,7 +18,7 @@ import user from '../../../../models/user'
     
     const userData = await user.find({})
     
-    res.status(200).json({success: true, users : userData})
+    res.status(200).json(userData)
     //console.log(users)
     
   }

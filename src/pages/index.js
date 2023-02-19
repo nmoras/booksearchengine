@@ -6,7 +6,7 @@ import Users from '@/components/Home/Users';
 import InputForm from '@/components/Forms/InputForm'
 
 export default function Home({users}) {
- 
+ //console.log(users)
   return (
     <>
       <Head>
@@ -22,22 +22,25 @@ export default function Home({users}) {
 
 export async function getServerSideProps() {
   console.log('testing')
+
+  let userData = []
   const res = await fetch('http://localhost:3000/api/users')
-                .then( (result) => result.json())        
+                .then( (result) => result.json())
+                .then( responseData => userData = [...responseData])      
   //console.log('the api user response is', res)
 
+
   //const { user } = res.data
-  
+  //let data = JSON.parse(res)
 
-  //console.log(res.data)
-  const  { users } = res.users
-  console.log('user', users )
-  console.log('user type is', typeof(users))
-  //console.log(Object.values(user)) 
+  //console.log('users', data.users)
+  //const  { users } = data.users
+  //console.log('user type is', typeof(userData))
+  //console.log('response is', res)
  
-
+  //console.log('response is', userData.length)
   return {
-    props: {users: users}, // will be passed to the page component as props
+    props: {users: res } // will be passed to the page component as props
   }
 }
 
