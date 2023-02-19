@@ -1,13 +1,12 @@
-import user from 'models/user';
 import { set } from 'mongoose';
 import { useState } from 'react';
 
-const Users = (users) => {
-  console.log('users', users)
-   const[ userList, setUserList ] = useState([])
-   setUserList[users.data]
-    console.log('users component is', userList )
-    if(users){
+const Users = ({data}) => {
+  console.log('users', data)
+   const[ userList, setUserList ] = useState('')
+   setUserList[data]
+    //console.log('users component is', userList )
+    if(data){
       return ( 
         <div>
         <table className="table">
@@ -19,15 +18,13 @@ const Users = (users) => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            { (userList.length !== 0) ? userList.map( user =>
-                <div>
-                    <td>{user.firstname}</td>
-                    <td>{user.lastname}</td>
-                    <td>{user.profession}</td>
-                </div>   
+            { (data.length !== 0) ? data.map( user =>
+            <tr>
+                    <td scope="col">{user.firstname}</td>
+                    <td scope="col">{user.lastname}</td>
+                    <td scope="col">{user.profession}</td>
+            </tr>
         ): ''}
-        </tr>
         </tbody>  
         </table>
       </div>
