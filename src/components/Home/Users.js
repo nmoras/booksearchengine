@@ -1,5 +1,6 @@
 import { set } from 'mongoose';
 import { useState } from 'react';
+import Link from 'next/link';
 
 const Users = ({data}) => {
   console.log('users', data)
@@ -15,6 +16,7 @@ const Users = ({data}) => {
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
             <th scope="col">Profession</th>
+            <th scope="col">Profession</th>
           </tr>
         </thead>
         <tbody>
@@ -23,6 +25,11 @@ const Users = ({data}) => {
                     <td scope="col">{user.firstname}</td>
                     <td scope="col">{user.lastname}</td>
                     <td scope="col">{user.profession}</td>
+                    <td scope="col">
+                      <button href={`/user._id}/edit/`}>Edit</button><br/>
+                      <button href={`/user._id}/view/`}>View</button>
+                    </td>
+
             </tr>
         ): ''}
         </tbody>  
