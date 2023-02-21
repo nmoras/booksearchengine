@@ -16,7 +16,7 @@ const Users = ({data}) => {
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
             <th scope="col">Profession</th>
-            <th scope="col">Profession</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
@@ -26,8 +26,13 @@ const Users = ({data}) => {
                     <td scope="col">{user.lastname}</td>
                     <td scope="col">{user.profession}</td>
                     <td scope="col">
-                      <button href={`/user._id}/edit/`}>Edit</button><br/>
-                      <button href={`/user._id}/view/`}>View</button>
+                      <Link href={`/${user._id}/edit`}>
+                        <button >Edit</button>
+                      </Link>
+                      <br/>
+                      <Link href={`/${user._id}/view`}>
+                        <button >View</button>
+                      </Link>
                     </td>
 
             </tr>

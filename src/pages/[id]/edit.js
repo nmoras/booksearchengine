@@ -1,8 +1,6 @@
 const edit = () => {
-    return ( 
-        <>
-        </>
-     );
+    return ( <>
+    </> );
 }
  
 export default edit;
