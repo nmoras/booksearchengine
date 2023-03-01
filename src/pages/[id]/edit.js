@@ -25,14 +25,15 @@ const edit = () => {
 export async function getServerSideProps(params) {
     console.log('params', params)
 
-    //const { id } = params.params
+    const { id } = params.params
   
-    //const res = await fetch('http://localhost:3000/api/user/${id}')
+    const res = await fetch('http://localhost:3000/api/user/${id}')
                   .then( (result) => result.json())
                
-    //const { }
+    console.log(res)
     return {
-      //props: {users: res } // will be passed to the page component as props
+        
+      props: {users: res } // will be passed to the page component as props
     }
   }
   
