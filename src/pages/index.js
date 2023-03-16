@@ -21,7 +21,7 @@ export default function Home({users}) {
 }
 
 export async function getServerSideProps() {
-  console.log('testing')
+  //console.log('testing')
 
   let userData = []
   const res = await fetch('http://localhost:3000/api/users')

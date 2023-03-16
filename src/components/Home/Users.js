@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 const Users = ({data}) => {
-  console.log('users', data)
+  //console.log('users', data)
    const[ userList, setUserList ] = useState('')
    setUserList[data]
     //console.log('users component is', userList )

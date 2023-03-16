@@ -2,7 +2,7 @@ import dbconnect from '../../../utils/dbconnect'
 import user from '../../../../models/user'
 
 
- export default async function( req,res ){
+export default async function( req,res ){
 
   await dbconnect();
 
