@@ -5,21 +5,47 @@ import EditForm from '@/components/Forms/EditForm';
 import InputForm from '@/components/Forms/InputForm';
 
 const edit = ({initialValues}) => {
-    //console.log('users in editJS', users)
+    //console.log('users in editJS', initialValues)
     const router = useRouter();
     //console.log(router)
     const userId = router?.query?.id;
-    //
+    
+    const [form, setForm] = useState( { 
+      firstname: initialValues?initialValues.firstname:'',
+      lastname: initialValues?initialValues.lastname:'', 
+      profession: initialValues?initialValues.profession:'' })
     //console.log('user id in editJS', userId)
 
-    //const handleChange = (e) => {e.preventDefault()}
+    const handleChange = (e) => {
+      e.preventDefault();
+      let user = ({...form, [e.target.id] :e.target.value})
+      //console.log(user)
+      setForm(user)
+    }
 
-    //const handleForm = (e) => { e.preventDefault() } 
+    const handleForm = async (e) => {
+        e.preventDefault() 
+        const apiUserForm = await fetch('/api/register', 
+        {   method: 'post',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(form)
+        })
+        .then( (result) => result.json())
+        .then( setForm({ firstname: "", lastname: "", profession: "" })) 
+  
+        if(apiUserForm.success){
+          router.push('/')
+        }
+      
+      } 
 
     return ( 
         <InputForm 
-        //onSubmit={handleForm}
-        //handleChange={handleChange}
+        onSubmit={handleForm}
+        handleChange={handleChange}
         heading="Add a new User - SEO"
         buttonText = "Update Info"
         data={initialValues}
@@ -37,7 +63,7 @@ export async function getServerSideProps(params) {
     
     const { userData }  = res  
     //console.log('response in editJS is', res)
-    console.log('destrcutured userData in editJS is', userData)
+    //console.log('destrcutured userData in editJS is', userData)
     return {
       props: {initialValues: userData } // will be passed to the page component as props
     }
