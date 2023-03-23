@@ -17,9 +17,10 @@ const edit = ({initialValues}) => {
     //console.log('user id in editJS', userId)
 
     const handleChange = (e) => {
+      console.log(e.target.value)
       e.preventDefault();
       let user = ({...form, [e.target.id] :e.target.value})
-      //console.log(user)
+      console.log(user)
       setForm(user)
     }
 
