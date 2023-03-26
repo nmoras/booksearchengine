@@ -14,7 +14,7 @@ const InputForm = ({onSubmit, handleChange, heading, data}) => {
             </div>
             <div className="mb-3">
               <label className="form-label">Last Name</label>
-              <input type="text" className="form-control" id="lastname"  value="" onChange={handleChange}></input>
+              <input type="text" className="form-control" id="lastname"  value={data?data.lastname:''} onChange={handleChange}></input>
             </div>
             <div className="mb-3">
               <label className="form-label">Profession</label>

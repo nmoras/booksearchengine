@@ -26,7 +26,7 @@ const edit = ({initialValues}) => {
 
     const handleForm = async (e) => {
         e.preventDefault() 
-        const apiUserForm = await fetch('/api/register', 
+        const apiUserForm = await fetch(`http://localhost:3000/api/user/${userId}`, 
         {   method: 'post',
             headers: {
                 'Accept': 'application/json, text/plain, */*',
@@ -36,7 +36,8 @@ const edit = ({initialValues}) => {
         })
         .then( (result) => result.json())
         .then( setForm({ firstname: "", lastname: "", profession: "" })) 
-  
+        
+        console.log('apiuseform is', apiUserForm)
         if(apiUserForm.success){
           router.push('/')
         }
@@ -49,7 +50,7 @@ const edit = ({initialValues}) => {
         handleChange={handleChange}
         heading="Add a new User - SEO"
         buttonText = "Update Info"
-        data={initialValues}
+        data={form}
       />
      );
 }

@@ -4,10 +4,10 @@ import user from '../../../../models/user'
 
 export default async function( req,res ){
   await dbconnect();
-  //console.log('edit id', req)
     const { method,
               query: { id }} = req;
-    //console.log(id, 'id in id api');
+              //console.log('edit id', id)
+    //console.log('req.body in userid page', req.body);
     
     switch(method){
       case 'GET':
@@ -28,22 +28,18 @@ export default async function( req,res ){
         res.status(400).json({ success: false, message:error.message})
       }
       break;
-      case 'PUT':
+      case 'POST':
         try {
-          const userData = await user.findByIdAndUpdate (id, rq.body, (err) => {
+          const userData = await user.findByIdAndUpdate(id, req.body, (err) => {
             if (err){
               console.log(err)
             }
           });
+          console.log('userdata', userdata)
           if(!userData) {
-            res.status(400).json({
-              success: false,
-              message: "something went wrong"
-            })
+            res.status(400).json({ success: false })
           }
-          res.status(200).json({
-            success: true
-          });  
+          res.status(200).json({ success: true });  
         } catch (error) {
           res.status(400).json({ success: false, message:error.message})
         }
